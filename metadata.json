@@ -1,0 +1,9 @@
+{
+  "name": "Copy of NOTHING",
+  "description": "A mobile-first web application for purchasing Free Fire diamonds. Users can manage their accounts, add funds, and buy diamond packs directly.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
