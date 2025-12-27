@@ -41,11 +41,11 @@ const BottomNav: FC<BottomNavProps> = ({ activeScreen, setActiveScreen, texts, e
   const visibleNavItems = allNavItems.filter(item => item.visible);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto px-4 pt-1 pb-1 z-50 md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto px-4 pt-1 pb-2 z-50 md:hidden">
       <div 
-        className="relative bg-light-card/95 dark:bg-dark-card/95 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 rounded-[20px] shadow-2xl shadow-black/20"
+        className="relative bg-light-card/95 dark:bg-dark-card/95 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 rounded-2xl shadow-2xl shadow-black/20"
       >
-        <div className="flex justify-around items-center h-[60px] px-1">
+        <div className="flex justify-around items-center h-14 px-1">
           {visibleNavItems.map((item) => {
             const isActive = activeScreen === item.screen;
             const Icon = item.Icon;
@@ -58,7 +58,7 @@ const BottomNav: FC<BottomNavProps> = ({ activeScreen, setActiveScreen, texts, e
                 className="flex flex-col items-center justify-center flex-1 transition-all duration-300 ease-in-out active:scale-90 group"
                 aria-current={isActive ? 'page' : undefined}
               >
-                <div className={`relative w-[34px] h-[34px] rounded-full flex items-center justify-center transition-all duration-300
+                <div className={`relative w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300
                   ${isActive 
                     ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/30' 
                     : 'bg-gray-100 dark:bg-dark-bg text-gray-500 dark:text-gray-400 group-hover:bg-gray-200 dark:group-hover:bg-slate-700'
@@ -66,7 +66,7 @@ const BottomNav: FC<BottomNavProps> = ({ activeScreen, setActiveScreen, texts, e
                   ${isWallet && isAnimatingWallet ? 'animate-wallet-scale' : ''}
                   `}
                 >
-                    <Icon className={`w-[18px] h-[18px] transition-colors duration-300 ${isActive ? 'text-white' : 'text-inherit'}`} />
+                    <Icon className={`w-4 h-4 transition-colors duration-300 ${isActive ? 'text-white' : 'text-inherit'}`} />
                     
                     {isWallet && isAnimatingWallet && (
                          <div className="absolute inset-0 pointer-events-none">
@@ -83,7 +83,7 @@ const BottomNav: FC<BottomNavProps> = ({ activeScreen, setActiveScreen, texts, e
                         </div>
                     )}
                 </div>
-                <span className={`text-[10px] mt-0.5 font-medium transition-all duration-300 capitalize ${isActive ? 'text-primary font-bold' : 'text-gray-400 dark:text-gray-500'}`}>
+                <span className={`text-[9px] mt-0.5 font-medium transition-all duration-300 capitalize ${isActive ? 'text-primary font-bold' : 'text-gray-400 dark:text-gray-500'}`}>
                     {item.label}
                 </span>
               </button>

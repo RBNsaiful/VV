@@ -37,7 +37,7 @@ const BellIcon: FC<{className?: string}> = ({className}) => (
 const MaintenanceIcon: FC<{className?: string}> = ({className}) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
 );
-const XIcon: FC<{className?: string}> = ({className}) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>);
+const XIcon: FC<{className?: string}> = ({className}) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="12" x2="18" y2="12"/></svg>);
 
 interface HeaderProps {
     appName: string;
@@ -149,7 +149,7 @@ const Header: FC<HeaderProps> = ({ appName, logoUrl, logoActive, screen, texts, 
                             <img src={logoUrl} alt="App Logo" className="w-full h-full object-cover" />
                         </div>
                     )}
-                    <h1 className="ml-1.5 text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-[0_2px_2px_rgba(0,0,0,0.2)] dark:drop-shadow-[0_2px_5px_rgba(124,58,237,0.3)]">
+                    <h1 className="ml-1.5 text-xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-[0_2px_2px_rgba(0,0,0,0.2)] dark:drop-shadow-[0_2px_5px_rgba(124,58,237,0.3)]">
                         {appName}
                     </h1>
                 </div>
@@ -164,16 +164,16 @@ const Header: FC<HeaderProps> = ({ appName, logoUrl, logoActive, screen, texts, 
             </div>
             
             {user && (
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3">
                      <button onClick={() => onNavigate('notifications')} className="relative w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Notifications">
-                        <BellIcon className="w-[1.25rem] h-[1.25rem]" />
-                        {hasUnreadNotifications && (<span className="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-gray-800"></span>)}
+                        <BellIcon className="w-5 h-5" />
+                        {hasUnreadNotifications && (<span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-gray-800"></span>)}
                     </button>
                     <button onClick={() => onNavigate('wallet')} className="flex items-center space-x-2 bg-gradient-to-r from-primary to-secondary text-white font-bold px-4 py-1.5 rounded-full text-sm hover:opacity-90 transition-opacity shadow-lg shadow-primary/30" data-testid="header-wallet-button">
-                        <WalletHeaderIcon className="w-[1.25rem] h-[1.25rem]" />
+                        <WalletHeaderIcon className="w-5 h-5" />
                         <span onAnimationEnd={onBalancePulseEnd} className={isBalancePulsing ? 'animate-balance-pulse' : ''}>{formatBalance(user.balance)}{texts.currency}</span>
                     </button>
-                    <div onClick={() => onNavigate('profile')} className="hidden md:block w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 cursor-pointer hover:border-primary transition-colors">
+                    <div onClick={() => onNavigate('profile')} className="hidden md:block w-9 h-9 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 cursor-pointer hover:border-primary transition-colors">
                         <img src={user.avatarUrl} alt="Profile" className="w-full h-full object-cover" />
                     </div>
                 </div>
